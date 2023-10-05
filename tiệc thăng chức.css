@@ -1,13 +1,15 @@
 /* Thiết lập font chữ và màu sắc chung */
 body {
-    font-family: Arial, sans-serif;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    background-image: url(path/to/nền1.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+  font-family: Arial, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  background-image: url(path/to/desktop-wallpaper-event-management.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% auto; /* Chỉnh kích thước ảnh theo chiều ngang, chiều cao tự động */
+}
+  
+  
   
   .contact-info {
     background-color: #000;
@@ -114,6 +116,7 @@ body {
       justify-content: center;
       margin-top: 20px;
     }
+    
     
     .image-box {
       width: 200px;
