@@ -1,0 +1,25 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .question {
+    margin-bottom: 10px;
+    background-color: #f2f2f2;
+    padding: 10px;
+  }
+  
+  .question h3 {
+    color: #350d0d;
+  }
+  
+  .answer {
+    margin-bottom: 20px;
+    color: #00b0d3;
+  }

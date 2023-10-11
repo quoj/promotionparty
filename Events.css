@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.event {
+    margin-bottom: 30px;
+    padding: 10px;
+    background-color: #f2f2f2;
+}
+
+.event h2 {
+    color: #333;
+    font-size: 20px;
+}
+
+.event p {
+    margin-bottom: 10px;
+}
+
+.event p:first-child {
+    font-weight: bold;
+}
