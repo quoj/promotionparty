@@ -9,7 +9,7 @@ const initSlider = () => {
   const scrollbarThumb = sliderScrollbar.querySelector(".scrollbar-thumb");
   const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
 
-  // Handle scrollbar thumb drag
+  // Xử lý kéo thanh trượt của thanh cuộn
   scrollbarThumb.addEventListener("mousedown", (e) => {
     const startX = e.clientX;
     const thumbPosition = scrollbarThumb.offsetLeft;
@@ -17,12 +17,12 @@ const initSlider = () => {
       sliderScrollbar.getBoundingClientRect().width -
       scrollbarThumb.offsetWidth;
 
-    // Update thumb position on mouse move
+    // Cập nhật vị trí nút trượt khi di chuyển chuột
     const handleMouseMove = (e) => {
       const deltaX = e.clientX - startX;
       const newThumbPosition = thumbPosition + deltaX;
 
-      // Ensure the scrollbar thumb stays within bounds
+      // Đảm bảo nút trượt của thanh cuộn không ra khỏi giới hạn
       const boundedPosition = Math.max(
         0,
         Math.min(maxThumbPosition, newThumbPosition)
@@ -34,18 +34,18 @@ const initSlider = () => {
       imageList.scrollLeft = scrollPosition;
     };
 
-    // Remove event listeners on mouse up
+    // Xóa các trình lắng nghe sự kiện khi nhả chuột
     const handleMouseUp = () => {
       document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseup", handleMouseUp);
     };
 
-    // Add event listeners for drag interaction
+    // Thêm các trình lắng nghe sự kiện cho tương tác kéo
     document.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mouseup", handleMouseUp);
   });
 
-  // Slide images according to the slide button clicks
+  // Trượt hình ảnh dựa trên các nút trượt được nhấp
   slideButtons.forEach((button) => {
     button.addEventListener("click", () => {
       const direction = button.id === "prev-slide" ? -1 : 1;
@@ -54,14 +54,14 @@ const initSlider = () => {
     });
   });
 
-  // Show or hide slide buttons based on scroll position
+  // Hiển thị hoặc ẩn các nút trượt dựa trên vị trí cuộn
   const handleSlideButtons = () => {
     slideButtons[0].style.display = imageList.scrollLeft <= 0 ? "none" : "flex";
     slideButtons[1].style.display =
       imageList.scrollLeft >= maxScrollLeft ? "none" : "flex";
   };
 
-  // Update scrollbar thumb position based on image scroll
+  // Cập nhật vị trí nút trượt của thanh cuộn dựa trên cuộn hình ảnh
   const updateScrollThumbPosition = () => {
     const scrollPosition = imageList.scrollLeft;
     const thumbPosition =
@@ -70,7 +70,7 @@ const initSlider = () => {
     scrollbarThumb.style.left = `${thumbPosition}px`;
   };
 
-  // Call these two functions when image list scrolls
+  // Gọi hai hàm này khi danh sách hình ảnh cuộn
   imageList.addEventListener("scroll", () => {
     updateScrollThumbPosition();
     handleSlideButtons();
@@ -79,3 +79,14 @@ const initSlider = () => {
 
 window.addEventListener("resize", initSlider);
 window.addEventListener("load", initSlider);
+
+document.getElementById("search-form").addEventListener("submit", function(event) {
+  event.preventDefault(); // Ngăn chặn việc gửi form mặc định
+
+  var searchTerm = document.getElementById("search-input").value;
+  if (searchTerm.trim() !== "") {
+      // Thực hiện tìm kiếm hoặc hành động tương ứng với giá trị searchTerm
+      // Ví dụ: chuyển hướng người dùng đến trang kết quả tìm kiếm
+      window.location.href = "https://example.com/search?q=" + encodeURIComponent(searchTerm);
+  }
+});
